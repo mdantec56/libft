@@ -1,5 +1,4 @@
-int	ft_isup(char c);
-int	ft_islow(char c);
+#include "libft.h"
 
 int	ft_isalpha(char c)
 {

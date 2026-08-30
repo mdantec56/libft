@@ -1,3 +1,5 @@
+#include "libft.h"
+
 int	ft_islow(char c)
 {
 	if (c >= 'a' && c <= 'z')

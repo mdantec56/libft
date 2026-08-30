@@ -11,8 +11,8 @@ int	ft_isdigit(char c);
 int	ft_isalnum(char c);
 int	ft_isascii(char c);
 int	ft_isprint(char c);
-int	ft_tolower(char c);
-int	ft_toupper(char c);
+void	ft_tolower(char c);
+void	ft_toupper(char c);
 
 void	ft_putchar(char c);
 void	ft_putnbr(int nbr);

@@ -1,12 +1,12 @@
 NAME = libft.a
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Iincludes
+FLAGS = -Wall -Wextra -Werror -I includes
 SOURCES = $(wildcard src/*.c)
 OBJECTS = $(SOURCES:.c=.o)
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
-%o: %c
+%.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 all : $(NAME)
