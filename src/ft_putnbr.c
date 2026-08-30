@@ -1,0 +1,11 @@
+#include <unistd.h>
+void	ft_putchar(char c);
+
+void	ft_putnbr(int nbr)
+{
+	if (nbr < 0)
+		nbr = -nbr;
+	if (nbr >= 10)
+		ft_putnbr(nbr / 10);
+	ft_putchar(nbr % 10 + '0');
+}
