@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 int	ft_islow(char c);
 int	ft_isup(char c);
@@ -32,5 +33,7 @@ char	*ft_itoa(int nbr);
 char	*ft_strdup(char *src);
 char	**ft_split(char *src, char *charset);
 char	*ft_strjoin(char **srcs, char *sep);
+
+char	*ft_get_fichier(char *fichier);
 
 #endif
