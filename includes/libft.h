@@ -19,7 +19,7 @@ void	ft_putchar(char c);
 void	ft_putnbr(int nbr);
 void	ft_putstr(char *str);
 
-size_t	ft_strlen(char *str);
+int	ft_strlen(char *str);
 
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
@@ -33,6 +33,7 @@ char	*ft_itoa(int nbr);
 char	*ft_strdup(char *src);
 char	**ft_split(char *src, char *charset);
 char	*ft_strjoin(char **srcs, char *sep);
+char	**ft_subsplit(char *str, char *substring);
 
 char	*ft_get_fichier(char *fichier);
 

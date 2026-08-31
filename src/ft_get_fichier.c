@@ -17,6 +17,7 @@ int	ft_get_oct(char *fichier)
 		nb_oct += oct_lus;
 		oct_lus = read(fd, buffer, 999);
 	}
+	close(fd);
 	return (nb_oct);
 }
 
@@ -24,25 +25,28 @@ char	*ft_get_strfic(char *fichier, int nb_oct)
 {
 	int	fd;
 	char	*ficstr;
-	char	buffer[2];
-	int	i;
+	int	tot_lus;
+	int	oct_lus;
 
-	i = 0;
 	fd = open(fichier, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
 	ficstr = malloc(sizeof(char) * (nb_oct + 1));
 	if (!ficstr)
-		return (NULL);
-	read(fd, buffer, 1);
-	while (i < nb_oct)
 	{
-		ficstr[i] = buffer[0];
-		buffer[1] = '\0';
-		read(fd, buffer, 1);
-		++i;
+		close(fd);
+		return (NULL);
 	}
-	ficstr[i] = '\0';
+	tot_lus = 0;
+	while (tot_lus <= nb_oct)
+	{
+		oct_lus = read(fd, ficstr + tot_lus, nb_oct - tot_lus);
+		if (oct_lus <= 0)
+			break ;
+		tot_lus += oct_lus;
+	}
+	ficstr[tot_lus] = '\0';
+	close(fd);
 	return (ficstr);
 }
 
