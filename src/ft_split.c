@@ -54,14 +54,16 @@ char	**ft_split(char *str, char *charset)
 	int	count;
 	int	i;
 	int	debut;
+	int	nb_words;
 
 	i = 0;
 	count = 0;
 	debut = 0;
-	splitted = malloc(sizeof(char *) * (ft_count_words(str, charset) + 1));
+	nb_words = ft_count_words(str, charset);
+	splitted = malloc(sizeof(char *) * (nb_words + 1));
 	if (!splitted)
 		return (NULL);
-	while (count < ft_count_words(str, charset))
+	while (count < nb_words)
 	{
 		if (!ft_is_sep(charset, str[i]) && ft_is_sep(charset, str[i - 1]))
 			debut = i;
