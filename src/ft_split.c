@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int	ft_is_sep(char *sep, char c)
+int	ft_is_sep2(char *sep, char c)
 {
 	int	i;
 
@@ -14,7 +14,7 @@ int	ft_is_sep(char *sep, char c)
 	return (0);
 }
 
-int	ft_count_words(char *str, char *charset)
+int	ft_count_words2(char *str, char *charset)
 {
 	int	i;
 	int	count;
@@ -23,14 +23,14 @@ int	ft_count_words(char *str, char *charset)
 	count = 0;
 	while (str[i - 1])
 	{
-		if (ft_is_sep(charset, str[i]) && !ft_is_sep(charset, str[i - 1]))
+		if (ft_is_sep2(charset, str[i]) && !ft_is_sep2(charset, str[i - 1]))
 			++count;
 		++i;
 	}
 	return (count);
 }
 
-char	*ft_new_string(char *str, int debut, int fin)
+char	*ft_new_string2(char *str, int debut, int fin)
 {
 	char	*newstr;
 	int	i;
@@ -59,17 +59,17 @@ char	**ft_split(char *str, char *charset)
 	i = 0;
 	count = 0;
 	debut = 0;
-	nb_words = ft_count_words(str, charset);
+	nb_words = ft_count_words2(str, charset);
 	splitted = malloc(sizeof(char *) * (nb_words + 1));
 	if (!splitted)
 		return (NULL);
 	while (count < nb_words)
 	{
-		if (!ft_is_sep(charset, str[i]) && ft_is_sep(charset, str[i - 1]))
+		if (!ft_is_sep2(charset, str[i]) && (i == 0 || ft_is_sep2(charset, str[i - 1])))
 			debut = i;
-		if (!ft_is_sep(charset, str[i - 1]) && ft_is_sep(charset, str[i]))
+		if ((i == 0 || !ft_is_sep2(charset, str[i - 1])) && ft_is_sep2(charset, str[i]))
 		{
-			splitted[count] = ft_new_string(str, debut, i);
+			splitted[count] = ft_new_string2(str, debut, i);
 			++count;
 		}
 		++i;

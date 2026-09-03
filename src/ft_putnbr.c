@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void	ft_putnbr(long nbr)
+void	ft_putnbr(long long nbr)
 {
 	if (nbr < 0)
 		nbr = -nbr;
