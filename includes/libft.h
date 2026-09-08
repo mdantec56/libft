@@ -22,9 +22,9 @@ void	ft_putstr(char *str);
 int	ft_strlen(char *str);
 
 char	*ft_strcpy(char *dest, char *src);
-char	*ft_strncpy(char *dest, char *src, unsigned int n);
+char	*ft_strncpy(char *dest, char *src, int n);
 char	*ft_strcat(char *dest, char *src);
-char	*ft_strncat(char *dest, char *src, unsigned int n);
+char	*ft_strncat(char *dest, char *src, int n);
 int	ft_strcmp(char *s1, char *s2);
 int	ft_strncmp(char *s1, char *s2);
 long	ft_atoi(char *str);
@@ -34,6 +34,9 @@ char	*ft_strdup(char *src);
 char	**ft_split(char *src, char *charset);
 char	*ft_strjoin(char **srcs, char *sep);
 char	**ft_subsplit(char *str, char *substring);
+
+void	ft_swap(long *n1, long *n2);
+void	ft_quicksort(long *tab, long low, long high);
 
 char	*ft_get_fichier(char *fichier);
 
